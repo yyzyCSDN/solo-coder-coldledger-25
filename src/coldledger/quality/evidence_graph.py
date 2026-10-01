@@ -31,7 +31,7 @@ def reachable(seeds: Iterable[str], edges: Iterable[CaseEdge], max_depth: int | 
         if max_depth is not None and depth >= max_depth:
             continue
         for nxt in graph[cur]:
-            if nxt in seen:
+            if nxt not in seen:
                 seen.add(nxt)
                 q.append((nxt, depth + 1))
     return seen
